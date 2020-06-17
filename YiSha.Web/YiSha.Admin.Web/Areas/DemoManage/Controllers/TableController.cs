@@ -33,6 +33,11 @@ namespace YiSha.Admin.Web.Areas.DemoManage.Controllers
         {
             return View();
         }
+
+        public IActionResult MultiToolbar()
+        {
+            return View();
+        }
         #endregion
 
         #region 获取数据
@@ -42,8 +47,8 @@ namespace YiSha.Admin.Web.Areas.DemoManage.Controllers
             // 测试总共23条数据
             int total = 23;
             TData<List<UserEntity>> obj = new TData<List<UserEntity>>();
-            obj.TotalCount = total;
-            obj.Result = new List<UserEntity>();
+            obj.Total = total;
+            obj.Data = new List<UserEntity>();
             int id = (pagination.PageIndex - 1) * pagination.PageSize + 1;
             for (int i = id; i <= pagination.PageIndex * pagination.PageSize; i++)
             {
@@ -51,7 +56,7 @@ namespace YiSha.Admin.Web.Areas.DemoManage.Controllers
                 {
                     break;
                 }
-                obj.Result.Add(new UserEntity
+                obj.Data.Add(new UserEntity
                 {
                     Id = i,
                     RealName = "用户" + i,

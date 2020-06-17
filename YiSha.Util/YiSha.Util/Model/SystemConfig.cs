@@ -6,6 +6,10 @@ namespace YiSha.Util.Model
 {
     public class SystemConfig
     {
+        public SystemConfig()
+        {
+            DBSlowSqlLogTime = 5;
+        }
         /// <summary>
         /// 是否是Demo模式
         /// </summary>
@@ -41,7 +45,11 @@ namespace YiSha.Util.Model
         /// <summary>
         ///  数据库超时间（秒）
         /// </summary>
-        public string DBCommandTimeout { get; set; }
+        public int DBCommandTimeout { get; set; }
+        /// <summary>
+        /// 慢查询记录Sql(秒),保存到文件以便分析
+        /// </summary>
+        public int DBSlowSqlLogTime { get; set; }
         /// <summary>
         /// 数据库备份路径
         /// </summary>
